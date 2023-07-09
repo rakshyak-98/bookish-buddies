@@ -1,3 +1,10 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": ["next/core-web-vitals", "next/bebel"],
+  "ignorePatterns":["tailwind.config.js"],
+  "rules": {
+    "indent": ["error", 4],
+    "quotes": ["error", "double"],
+    "semi": ["warn", "always"]
+  }
 }
