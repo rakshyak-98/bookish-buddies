@@ -4,6 +4,7 @@
 /pwa/node_modules
 /pwa/.pnp
 /pwa/.pnp.js
+/api/node_modules
 
 # assets
 
@@ -37,3 +38,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
