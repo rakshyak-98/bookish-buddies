@@ -19,6 +19,6 @@
 - add new issue
     1. goto [link](https://github.com/rakshyak-98/bookish-buddies/issues)
     2. add new issue, 
-        - Title (error message).
+        - Title (error message with branch name).
         - copy paste the full length error message
 ## Code Lay-out
