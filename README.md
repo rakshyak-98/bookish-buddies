@@ -18,6 +18,7 @@ Booking appointment systems, either online or through traditional queueing syste
         - nodemon (npm run dev)
 - frontend (pwa/)
 ## Run tests
+- testing deployment branch [stage-main](https://bookish-buddies-api.onrender.com/ping)
 
 ## Author: 
 [rakshyak-98](https://github.com/rakshyak-98)
