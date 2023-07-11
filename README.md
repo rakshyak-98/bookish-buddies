@@ -17,9 +17,14 @@ Booking appointment systems, either online or through traditional queueing syste
     - development dependencies
         - nodemon (npm run dev)
 - frontend (pwa/)
-## Run tests
-- production deployment [main](https://bookish-buddies-api-nlzu.onrender.com/ping)
-- testing deployment [stage-main](https://bookish-buddies-api.onrender.com/ping)
+## Deployment
+- api
+    - production branch [main](https://bookish-buddies-api-nlzu.onrender.com/ping)
+    - development branch [stage-main](https://bookish-buddies-api.onrender.com/ping)
+- pwa
+    - production branch [main](https://bookish-buddies-lfosjxrwn-rakshyak-98.vercel.app/?vercelToolbarCode=2j5zuHGmXZEwydl)
+    - development branch [stage-main](https://bookish-buddies-stage-nob5za4o8-rakshyak-98.vercel.app/?vercelToolbarCode=8rJlnyAIYF8zu3n)
+## Run test
 
 ## Author: 
 [rakshyak-98](https://github.com/rakshyak-98)
