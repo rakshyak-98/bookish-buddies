@@ -13,11 +13,15 @@ Booking appointment systems, either online or through traditional queueing syste
 ## Table of contents
 
 ## Installation
-
+- backend (api/)
+    - development dependencies
+        - nodemon (npm run dev)
+- frontend (pwa/)
 ## Run tests
 
-## Authors:
-
-## Contributors: 
+## Author: 
+[rakshyak-98](https://github.com/rakshyak-98)
+## Contributors:
+[yanicodeverse](https://github.com/yanicodeverse), [developerjay18](https://github.com/developerjay18), [Ambrish5211](https://github.com/Ambrish5211)
 
 ## keywords
