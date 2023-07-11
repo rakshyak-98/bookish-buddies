@@ -10,3 +10,6 @@ app.get("/ping", (req, res) => {
         headers: req.headers
     }})
 })
+
+
+app.listen(process.env.API_PORT)
