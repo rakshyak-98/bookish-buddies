@@ -2,15 +2,23 @@
   "name": "bookish-buddies",
   "version": "1.0.0",
   "description": "Booking appointment systems, either online or through traditional queueing systems, are now popular. Several businesses, such as scheduling an appointment, employ various Web-based appointment systems for their patients, which improve the efficiency of the appointment process, reducing patient wait times and increasing the total number of patients treated. This research proposes a web-based appointment booking system that allows students and lecturers to be aware of their appointment time regardless of where they are by using the web or mobile devices. By connecting to the Internet, students and instructors can easily access the system. It also permits students to send any message, including the appointment's purpose and timing.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodeman server.js"
   },
   "author": "Ambrish",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2"
+    "email-validator": "^2.0.4",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.3.2",
+    "nodemon": "^3.0.1"
   }
 }
