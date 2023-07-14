@@ -5,6 +5,7 @@
 /pwa/.pnp
 /pwa/.pnp.js
 /api/node_modules
+/api/.env
 
 # assets
 
