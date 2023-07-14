@@ -17,14 +17,12 @@ connectToDb();
 
 app.use("/api/auth", authRouter);
 
- app.use("/home", (req, res) => {
+ app.use("/", (req, res) => {
      res.status(200).json({
          data: "all good",
      });
  });
 
-app.all('*',(req, res)=>{
-    res.status(404).send('OOPS!! 404 page not found');
-  })
+
 
 module.exports = app;
