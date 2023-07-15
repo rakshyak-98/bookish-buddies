@@ -2,10 +2,6 @@
 const app = require('./app.js')
 const PORT = process.env.API_PORT || 8001;
 
-const  express = require("express");
-
-const app = express()
-
 app.get("/ping", (req, res) => {
     res.status(200).send({msg: "server is running fine", metaInfo: {
         host: req.hostname,
