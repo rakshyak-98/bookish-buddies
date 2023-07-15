@@ -2,7 +2,7 @@
 const app = require('./app.js')
 const PORT = process.env.API_PORT || 8001;
 
-import express from "express";
+const  express = require("express");
 
 const app = express()
 
