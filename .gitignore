@@ -14,7 +14,7 @@
 /coverage
 
 # next.js
-/.next/
+/pwa/.next/
 /out/
 
 # production
