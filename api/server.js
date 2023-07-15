@@ -1,7 +1,10 @@
+
+const app = require('./app.js')
+const PORT = process.env.API_PORT || 8001;
+
 import express from "express";
 
 const app = express()
-
 
 app.get("/ping", (req, res) => {
     res.status(200).send({msg: "server is running fine", metaInfo: {
@@ -11,7 +14,6 @@ app.get("/ping", (req, res) => {
     }})
 })
 
-
-app.listen(process.env.API_PORT, () => {
-    console.log(process.env.API_PORT, "api started listening...")
+app.listen(PORT, () => {
+  console.log(`Server is listening at PORT: ${PORT} `);
 })
