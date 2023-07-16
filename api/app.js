@@ -11,11 +11,13 @@ app.use(cors());
 
 const connectToDb = require("./config/db.js");
 const authRouter = require("./routes/auth.routes.js");
+const adminRouter = require("./routes/admin.routes.js");
 connectToDb();
 
 
 
 app.use("/api/auth", authRouter);
+app.use("/admin", adminRouter)
 
  app.use("/", (req, res) => {
      res.status(200).json({
