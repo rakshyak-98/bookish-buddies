@@ -5,23 +5,27 @@ const JWT = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const studentSchema = new mongoose.Schema ({
-    name: {
+    name:{
       type: String,
       required: [true, "User name is required"],
       minLength : [5, "Name must be atleast 5 char"],
       maxLength: [50, "Name must be less than 50 char"],
       trim: true
-    },
+    }, 
     email: {
       type: String,
       required: [true, "User email is required"],
       lowercase: true,
-      unique: [true, "Already email used"],
+      unique: [true, "Already used Email"],
     },
     role: {
     type: String,
        enum: ["STUDENT",  "TEACHER"],
        default: 'STUDENT'
+     },
+     isApproved : {
+      type: Boolean,
+      default: false
      },
     password: {
       type:String,
