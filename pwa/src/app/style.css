@@ -1,0 +1,95 @@
+.container{
+    display: grid;
+    gap: 1.8rem;
+    grid-template-columns: 12rem auto 23rem;
+}
+aside{
+    height: 100vh;
+}
+aside .sidebar__dashboard{
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 20px;
+    transition: all 0.3s ease;
+    width: 15rem;
+    height: 90vh;
+    justify-content: space-between;
+}
+aside .sidebar__dashboard__settings > :not(:last-child){
+    margin-bottom: 1rem;
+}
+aside a.active{
+    color: var(--color-primary);
+    background-color: var(--color-light);
+}
+aside .sidebar__dashboard:hover, main .analyses > div:hover{
+    box-shadow: none;
+}
+aside .sidebar__dashboard a{
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    color: var(--color-info-dark);
+    gap: 1rem;
+    padding: 10px;
+    height: 3.7rem;
+    transition: all .2s ease-in;
+}
+aside a:hover{
+    color: var(--color-primary);
+    background-color: var(--color-light);
+}
+
+main{
+    margin-top: 1.4rem;
+    margin-left: 4rem;
+}
+main .analyses{
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+main .analyses > div{
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: var(--card-padding);
+    transform: all .3s ease;
+}
+
+main .analyses > div .status{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.8rem;
+}
+
+main .analyses .progress{
+    border-radius: 50%;
+    height: 92px;
+    position: relative;
+    width: 92px;
+}
+main .analyses svg{
+    width: 7rem;
+    height: 7rem;
+}
+main .analyses svg circle{
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: butt;
+    stroke: var(--color-success);
+}
+
+main .analyses .progress p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    color: var(--color-dark);
+}
