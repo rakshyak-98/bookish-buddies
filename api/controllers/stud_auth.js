@@ -2,10 +2,22 @@ const studentModel = require("../model/student.model");
 const emailValidator = require("email-validator");
 const bcrypt = require('bcrypt');
 
+function createStudent(data) {
+  let validKey = ['name', 'email']
+
+  for (let key of validKey) {
+    if (key in data) continue
+    else throw new Error(`Invalid Key ${key}`)
+  }
+
+  studentModel.create(data)
+
+}
+
 
 const signup = async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
-  
+
 
   try {
     if (!name || !email || !password || !confirmPassword) {
@@ -54,9 +66,9 @@ const signup = async (req, res) => {
 
 
 const signin = async (req, res) => {
-  const{email, password} = req.body;
-  
-  if(!email || !password) {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
     return res.status(400).json({
       success: false,
       message: "Every field is required"
@@ -69,26 +81,26 @@ const signin = async (req, res) => {
       email
     }).select('+password');
 
-    
 
-    if(!student || !await bcrypt.compare(password,student.password)) {
+
+    if (!student || !await bcrypt.compare(password, student.password)) {
       return res.status(400).json({
         success: false,
         message: "Invalid Credentials"
       })
     }
 
-    
-     
-     const token = student.jwtToken();
-     student.password = undefined;
-     
+
+
+    const token = student.jwtToken();
+    student.password = undefined;
+
     const cookieOptions = {
-      maxAge: 24*60*60*1000,  //24hr
+      maxAge: 24 * 60 * 60 * 1000,  //24hr
       httpOnly: true
     };
 
-    res.cookie("token", token , cookieOptions);
+    res.cookie("token", token, cookieOptions);
     res.status(200).json({
       success: true,
       data: student
@@ -98,7 +110,7 @@ const signin = async (req, res) => {
 
   } catch (error) {
     res.status(404).json({
-      success:false,
+      success: false,
       message: error.message
     })
   }
@@ -109,12 +121,12 @@ const signin = async (req, res) => {
 
 const getStudent = async (req, res) => {
   const studentId = req.student.id;
-  
+
 
   try {
     const student = await studentModel.findById(studentId);
     return res.status(200).json({
-      success:true,
+      success: true,
       data: student
     })
   } catch (error) {
@@ -126,23 +138,23 @@ const getStudent = async (req, res) => {
 }
 
 const logout = (req, res) => {
- try {
-  const cookieOptions = {
-    expires: new Date(),
-    httpOnly: true
+  try {
+    const cookieOptions = {
+      expires: new Date(),
+      httpOnly: true
+    }
+    res.cookie("token", null, cookieOptions);
+    res.status(200).json({
+      success: true,
+      message: "Logged out  successfully"
+    })
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message
+    })
   }
-  res.cookie("token", null, cookieOptions);
-  res.status(200).json({
-    success:true,
-    message: "Logged out  successfully"
-  })
- } catch (error) {
-  return res.status(400).json({
-    success: false,
-    message: error.message
-  })
- }
 }
 
 
-module.exports = {signup, signin, getStudent, logout};
+module.exports = { signup, signin, getStudent, logout, createStudent };
