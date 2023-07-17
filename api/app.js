@@ -23,6 +23,7 @@ const authRouter = require("./routes/auth.routes.js");
 const passport = require("passport");
 app.use(passport.initialize())
 app.use(passport.session())
+const adminRouter = require("./routes/admin.routes.js");
 connectToDb();
 
 
@@ -31,11 +32,13 @@ app.use("/api/auth", authRouter);
 app.use('/test/google', (req, res) => {
     res.render('testAuthIndex.ejs')
 })
+app.use("/admin", adminRouter)
 app.use("/", (req, res) => {
-    res.status(200).json({
-        data: "all good",
-    });
-});
+     res.status(200).json({
+         data: "all good",
+     });
+ });
+
 
 
 
