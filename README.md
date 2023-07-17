@@ -11,6 +11,17 @@ Booking appointment systems, either online or through traditional queueing syste
 - student can send message (appointment's details)
 - send email alert.
 ## Table of contents
+| index | content |
+|-----|:--------:|
+|1| [Installation](#installation) |
+|2| [Deployment](#deployment) |
+|3| [Run test](#run-test)|
+|4| [High Level Design](#high-level-design)|
+|5| [Low Level Design](#low-level-design)|
+|6| [author](#author)|
+|7| [contributor](#contributors)|
+|8| [keywords](#keywords)|
+
 
 ## Installation
 - backend (api/)
@@ -26,6 +37,22 @@ Booking appointment systems, either online or through traditional queueing syste
     - development branch [stage-main](https://bookish-buddies-stage-nob5za4o8-rakshyak-98.vercel.app/?vercelToolbarCode=8rJlnyAIYF8zu3n)
 ## Run test
 
+## High Level Design
+![overview](assets/overview-hld.png)
+## Low Level Design
+### HTTP basic access authentication
+HTTP basic access authentication requires a web browser to 
+provide a username and a password when requesting a protected resource. 
+The credentials are encoded using the Base64 algorithm and included in 
+the HTTP header field Authorization: Basic.
+how it works:
+1. The client sends a request to access a protected resource on the server.
+2. If the client has not yet provided any authentication credentials, the server responds with a 401 Unauthorized status code and includes the WWW-Authenticate: Basic header to indicate that it requires basic authentication.
+3. The client then prompts the user to enter their username and password, which are combined into a single string in the format username:password.
+4. The combined string is Base64 encoded and included in the "Authorization: Basic" header in the subsequent request to the server, e.g., Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=.
+5. Upon receiving the request, the server decodes the Base64-encoded credentials and separates the username and password. The server then checks the provided credentials against its user database or authentication service.
+6. If the credentials match, the server grants access to the requested resource. If not, the server responds with a 401 Unauthorized status code.
+![http basic access authentication](assets/http-basic-access-authenticatio.png)
 ## Author: 
 [rakshyak-98](https://github.com/rakshyak-98)
 ## Contributors:
