@@ -1,95 +1,119 @@
-.container{
-    display: grid;
-    gap: 1.8rem;
-    grid-template-columns: 12rem auto 23rem;
+* {
+    margin: 0;
+    padding: 0;
 }
-aside{
-    height: 100vh;
-}
-aside .sidebar__dashboard{
-    border-radius: 15px;
-    box-shadow: var(--box-shadow);
+aside {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    padding: 20px;
-    transition: all 0.3s ease;
-    width: 15rem;
+    gap: 1rem;
     height: 90vh;
     justify-content: space-between;
 }
-aside .sidebar__dashboard__settings > :not(:last-child){
-    margin-bottom: 1rem;
+.top-settings {
+    display: flex;
+    gap: 0.4rem;
+    flex-direction: column;
+    height: 20vh;
 }
-aside a.active{
-    color: var(--color-primary);
-    background-color: var(--color-light);
+a.active {
+    background: #c6dee7;
+    color: teal;
 }
-aside .sidebar__dashboard:hover, main .analyses > div:hover{
-    box-shadow: none;
+.bottom-settings {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
-aside .sidebar__dashboard a{
-    border-radius: 12px;
+.bottom-settings a:last-child {
+    margin-top: auto;
+    color: red;
+}
+.top-settings,
+.bottom-settings {
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    width: 15rem;
+    padding: 10px;
+}
+a {
     display: flex;
     align-items: center;
-    color: var(--color-info-dark);
-    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    gap: 0.6rem;
     padding: 10px;
-    height: 3.7rem;
-    transition: all .2s ease-in;
+    border-radius: 10px;
+    h3 {
+        font-weight: 100;
+        font-size: 16px;
+    }
 }
-aside a:hover{
-    color: var(--color-primary);
-    background-color: var(--color-light);
+a:hover {
+    color: teal;
+    background: #c6dee7;
 }
 
-main{
-    margin-top: 1.4rem;
-    margin-left: 4rem;
-}
-main .analyses{
-    display: grid;
-    gap: 1.6rem;
-    grid-template-columns: repeat(3, 1fr);
-}
-main .analyses > div{
-    background-color: var(--color-white);
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--box-shadow);
-    cursor: pointer;
+.page {
     margin-top: 1rem;
-    padding: var(--card-padding);
-    transform: all .3s ease;
+    display: flex;
+    gap: 1rem;
 }
-
-main .analyses > div .status{
-    align-items: center;
+main {
+    background: #f1e4ef;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 12rem auto 23rem;
+}
+.reminder {
+    padding: 10px;
+    background: #a9def9;
+}
+.reminder__header {
     display: flex;
     justify-content: space-between;
-    gap: 1.8rem;
+    align-items: center;
+    font-weight: normal;
+    font-size: 24px;
 }
-
-main .analyses .progress{
-    border-radius: 50%;
-    height: 92px;
-    position: relative;
-    width: 92px;
+.reminder__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
 }
-main .analyses svg{
-    width: 7rem;
-    height: 7rem;
+.reminder__icon:hover {
+    background: #ff1f57;
+    cursor: pointer;
+    color: white;
 }
-main .analyses svg circle{
-    fill: none;
-    stroke-width: 10;
-    stroke-linecap: butt;
-    stroke: var(--color-success);
+.reminder__header {
+    margin-bottom: 10px;
 }
-
-main .analyses .progress p{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -70%);
-    color: var(--color-dark);
+.notify__card {
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.notify__icon {
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    background: #ff1f57;
+    width: max-content;
+}
+.notify__card .timestamp {
+    color: gray;
+    font-size: 12px;
+}
+.notification__list {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
 }
