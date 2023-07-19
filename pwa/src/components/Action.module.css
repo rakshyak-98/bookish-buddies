@@ -1,0 +1,13 @@
+.notificationHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.notificationHeader h2{
+    font-size: 20px;
+}
+
+span:hover{
+    color: var(--color-red-pantone);
+    cursor: pointer;
+}

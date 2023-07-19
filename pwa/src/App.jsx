@@ -1,29 +1,21 @@
-import styled from "styled-components";
 import Layout from "./components/Layout";
 import Nav from "./components/Nav";
+import Action from "./components/Action"
 import LoginForm from "./components/LoginForm";
 import { useEffect, useState } from "react";
 
-const Center = styled.div`
-    background: var(--color-honeydew);
-`;
-
-const Right = styled.div`
-    height: 100vh;
-    background: teal;
-`;
 
 function App() {
     const [isAuthenticated, setAuthenticated] = useState(false);
 
     useEffect(() => {
-        setAuthenticated(false);
+        setAuthenticated(true);
     }, []);
 
     return (
         <>
             {isAuthenticated ? (
-                <Layout left={Nav} center={Center} right={Right} />
+                <Layout left={Nav} center={<div>center</div>} right={Action} />
             ) : (
                 <div>
                     <LoginForm />

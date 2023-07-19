@@ -25,7 +25,6 @@ const Right = styled.div`
 `
 
 export default function LoginForm() {
-    console.log(style)
     return (
         <Container>
             <Left>

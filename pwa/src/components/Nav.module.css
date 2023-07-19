@@ -1,11 +1,16 @@
-.option{
-    color: white;
+.option {
+    color: var(--color-yale-blue);
     display: flex;
     gap: 1rem;
     padding: 10px 20px;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease, margin 0.4s ease-out;
+    font-weight: 100;
+    font-size: 12px;
+    align-items: center;
 }
-.option:hover{
-    color: var(--color-yale-blue);
-    background-color: var(--color-honeydew);
+
+.option:hover {
+    color: var(--color-white);
+    background-color: var(--color-red-pantone);
+    margin-left: 6px;
 }
