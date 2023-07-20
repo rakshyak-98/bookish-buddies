@@ -28,6 +28,11 @@ Booking appointment systems, either online or through traditional queueing syste
     - development dependencies
         - nodemon (npm run dev)
 - frontend (pwa/)
+
+### Environment variables (required)
+```bash
+
+```
 ## Deployment
 - api
     - production branch [main](https://bookish-buddies-api-nlzu.onrender.com/ping)
