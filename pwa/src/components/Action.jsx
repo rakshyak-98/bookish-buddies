@@ -20,10 +20,10 @@ const Notifications = styled.div`
     border-radius: var(--border-radius)
 `;
 
-const Notification = styled.div`
-    padding: 1rem;
-    background: red;
-`
+// const Notification = styled.div`
+//     padding: 1rem;
+//     background: red;
+// `
 
 export default function Action() {
     return (
@@ -60,9 +60,6 @@ export default function Action() {
                         notifications
                     </span>
                 </div>
-                <Notification>
-                    icon name
-                </Notification>
             </Notifications>
         </Container>
     );

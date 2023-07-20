@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import style from "./LoginForm.module.css"
-import calendarImage from "../../public/calendar.svg"
+import calendarImage from "../assets/calendar.svg"
 import {FcGoogle} from 'react-icons/fc'
 
 const Container = styled.div`

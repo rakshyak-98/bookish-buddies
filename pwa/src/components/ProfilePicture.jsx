@@ -3,8 +3,8 @@ import style from "./ProfilePicture.module.css"
 
 const StyledProfile = styled.div`
     padding: 1rem;
-    width: 100px;
-    height: 100px;
+    width: 72px;
+    height: 72px;
     overflow: hidden;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
