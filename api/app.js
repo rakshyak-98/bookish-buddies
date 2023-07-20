@@ -2,7 +2,7 @@ const express = require("express");
 const session = require('express-session')
 const app = express();
 app.use(session({
-    secret: 'chut',
+    secret: process.env.GOOGLE_AUTH_SECRET,
     saveUninitialized: true,
     resave: false
 }))
