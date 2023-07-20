@@ -16,8 +16,8 @@ const Notifications = styled.div`
     margin-top: 2rem;
     background-color: var(--color-white);
     padding: 1rem;
-    box-shadow: var(--box-shadow)
-    border-radius: var(--border-radius)
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
 `;
 
 // const Notification = styled.div`
