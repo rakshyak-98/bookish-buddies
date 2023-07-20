@@ -1,0 +1,31 @@
+.thead th{
+    padding: 10px;
+    color: var(--color-light-coral)
+}
+.tbody{
+    text-align: center;
+}
+.tbody{
+    margin-top: 2rem;
+}
+.tbody > tr:nth-child(odd){
+    background-color: var(--color-light-rose);
+}
+.tbody > tr:nth-child(even){
+    background-color: var(--color-carousel-pink);
+}
+
+.tbody td{
+    padding: 6px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100px;
+    overflow-x: hidden;
+    font-size: 14px;
+}
+.tfoot{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+}

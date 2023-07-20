@@ -15,7 +15,7 @@ export default function Nav() {
             </a>
             <a href="#" className={style.option}>
                 <span className="material-symbols-outlined">group</span>
-                <h3>Accounts</h3>
+                <h3>Manage</h3>
             </a>
         </nav>
     );

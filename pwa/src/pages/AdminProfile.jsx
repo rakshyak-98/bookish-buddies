@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ProfilePicture from "../components/ProfilePicture";
 import imageDummy from "../assets/react.svg";
+import DataTable from "../components/DataTable";
 
 const Layout = styled.div`
     width: 100%;
@@ -67,6 +68,9 @@ export default function AdminProfile() {
                     <ProfilePicture imageUrl={imageDummy}/>
                 </RecentTeacherCreated>
             </Card>
+            <div>
+                <DataTable />
+            </div>
         </Layout>
     );
 }
