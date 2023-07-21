@@ -11,23 +11,25 @@ const Container = styled.div`
     background-color: var(--color-white);
     box-shadow: var(--box-shadow);
     padding: 2rem 0 0 0;
-`
+`;
 const TableController = styled.div`
     padding: 1rem;
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
-`
+`;
 
 export default function DataTable() {
     return (
         <Container>
             <Table>
                 <thead className={style.thead}>
-                    <th>Name</th>
-                    <th>Department</th>
-                    <th>Subject</th>
-                    <th>Action</th>
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Subject</th>
+                        <th>Action</th>
+                    </tr>
                 </thead>
                 <tbody className={style.tbody}>
                     <tr>

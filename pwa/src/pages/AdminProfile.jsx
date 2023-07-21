@@ -2,6 +2,8 @@ import styled from "styled-components";
 import ProfilePicture from "../components/ProfilePicture";
 import imageDummy from "../assets/react.svg";
 import DataTable from "../components/DataTable";
+import AddTeacherModal from "../components/AddTeacherModal";
+import { useState } from "react";
 
 const Layout = styled.div`
     width: 100%;
@@ -36,6 +38,7 @@ const AddMoreBtn = styled.div`
 `
 
 export default function AdminProfile() {
+    const [isopen, setIsopen] = useState(false)
     return (
         <Layout>
             <Card>
@@ -62,12 +65,13 @@ export default function AdminProfile() {
             </Card>
             <Card>
                 <RecentTeacherCreated>
-                    <AddMoreBtn>
+                    <AddMoreBtn onClick={() => setIsopen(true)}>
                         <span className="material-symbols-outlined" style={{color: "var(--color-white)"}}>add</span>
                     </AddMoreBtn>
                     <ProfilePicture imageUrl={imageDummy}/>
                 </RecentTeacherCreated>
             </Card>
+            <AddTeacherModal isopen={isopen} onclose={() => setIsopen(false)}/>
             <div>
                 <DataTable />
             </div>

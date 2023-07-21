@@ -12,8 +12,12 @@
   --color-isabelline: #FAF5F0;
   --color-light-rose: #FBDBDE;
   --color-carousel-pink: #F6B6BC;
+  --color-transparent: rgba(0,0,0,.4);
 
   --font-family-montserrat: 'Montserrat', sans-serif;
+  --font-btn: 18px;
+  --secondary-heading: 22px;
+
   --border-radius: 10px;
   --box-shadow: 0 1rem 4rem var(--color-gray);
 }
