@@ -10,7 +10,7 @@ const Left = styled.aside`
     background: var(--color-white);
     height: 100vh;
     padding: 3rem 0;
-    box-shadow: var(--box-shadow)
+    box-shadow: var(--box-shadow);
 `;
 
 const Center = styled.div`
