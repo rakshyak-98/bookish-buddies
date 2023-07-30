@@ -47,7 +47,7 @@ const signup = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      data: result,
+      message:"User signup done",
     });
   } catch (error) {
     if (error.code === 11000) {
@@ -103,7 +103,7 @@ const signin = async (req, res) => {
     res.cookie("token", token, cookieOptions);
     res.status(200).json({
       success: true,
-      data: student
+      message:"Signed in Successfully"
     })
 
 
@@ -119,7 +119,7 @@ const signin = async (req, res) => {
 }
 
 
-const getStudent = async (req, res) => {
+const user = async (req, res) => {
   const studentId = req.student.id;
 
 
@@ -157,4 +157,4 @@ const logout = (req, res) => {
 }
 
 
-module.exports = { signup, signin, getStudent, logout, createStudent };
+module.exports = { signup, signin, user, logout, createStudent };

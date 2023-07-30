@@ -47,7 +47,10 @@ const addTeacher = async (req, res) => {
 
 const updateTeacher = async (req, res) => {
     try {
-        const teacherId = req.params.id;
+        const authHeader = req.headers.authorization;
+
+        const teacherId = authHeader.split(" ")[1];
+
         const teacher = await Teacher.findById(teacherId);
         if (!teacher) {
             return res.status(404).json({
@@ -115,8 +118,8 @@ const studentApproval = async (req, res) => {
             host: "smtp.ethereal.email",
             port: 587,
             auth: {
-                user: "chet.skiles34@ethereal.email" ,/* fake email created using ethreal,  we can add  our own id*/
-                pass: 'HG4FpyFq6um7B1X85g',               
+                user: "chet.skiles34@ethereal.email" /* fake email created using ethreal,  we can add  our own id*/,
+                pass: "HG4FpyFq6um7B1X85g",
             },
         });
 
@@ -141,9 +144,25 @@ const studentApproval = async (req, res) => {
     }
 };
 
+const getAllTeachers = async (req, res) => {
+    try {
+        const teachers = await Teacher.find({});
+        res.status(200).json({
+            success: true,
+            data: teachers,
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
+
 module.exports = {
     addTeacher,
     updateTeacher,
     deleteTeacher,
     studentApproval,
+    getAllTeachers,
 };
