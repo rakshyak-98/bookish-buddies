@@ -32,26 +32,16 @@ export default function DataTable() {
                     </tr>
                 </thead>
                 <tbody className={style.tbody}>
-                    <tr>
-                        <td>Rakshyak</td>
-                        <td>Computer </td>
-                        <td>Computer</td>
+                    {[{id: 1, name: "Rakshyak", department: "staff", subject: "Computer science"}].map(data =>  <tr key={data.id}>
+                        <td>{data.name}</td>
+                        <td>{data.department}</td>
+                        <td>{data.subject}</td>
                         <td>
                             <span className="material-symbols-outlined">
                                 more_horiz
                             </span>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Rakshyak</td>
-                        <td>Computer</td>
-                        <td>Computer</td>
-                        <td>
-                            <span className="material-symbols-outlined">
-                                more_horiz
-                            </span>
-                        </td>
-                    </tr>
+                    </tr>)}
                 </tbody>
             </Table>
             <TableController>

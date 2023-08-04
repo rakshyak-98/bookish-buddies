@@ -1,8 +1,7 @@
 import style from "./Nav.module.css";
 
-export default function Nav() {
-    return (
-        <nav>
+export default function Nav({role}) {
+    return role ==  "admin" ? <nav>
             <a href="#" className={style.option}>
                 <span className="material-symbols-outlined">
                     space_dashboard
@@ -17,6 +16,20 @@ export default function Nav() {
                 <span className="material-symbols-outlined">group</span>
                 <h3>Manage</h3>
             </a>
-        </nav>
-    );
+        </nav> : <nav>
+        <a href="#" className={style.option}>
+            <span className="material-symbols-outlined">
+                space_dashboard
+            </span>
+            <h3>Calendar</h3>
+        </a>
+        <a href="#" className={style.option}>
+            <span className="material-symbols-outlined">menu</span>
+            <h3>Services</h3>
+        </a>
+        <a href="#" className={style.option}>
+            <span className="material-symbols-outlined">settings</span>
+            <h3>Settings</h3>
+        </a>
+    </nav>;
 }

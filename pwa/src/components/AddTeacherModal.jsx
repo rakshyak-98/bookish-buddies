@@ -59,7 +59,7 @@ const Button = styled.button`
 
 export default function AddTeacherModal({ isopen, onclose }) {
     return (
-        <Overlay isopen={isopen} onClick={onclose}>
+        <Overlay isopen={isopen} >
             <Card>
                 <CardHeader>
                     <h2 className={style.h2}>Add Teacher</h2>
