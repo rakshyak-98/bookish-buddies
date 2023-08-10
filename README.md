@@ -17,11 +17,10 @@ Booking appointment systems, either online or through traditional queueing syste
 |2| [Deployment](#deployment) |
 |3| [Run test](#run-test)|
 |4| [High Level Design](#high-level-design)|
-|5| [Low Level Design](#low-level-design)|
-|6| [author](#author)|
-|7| [contributor](#contributors)|
-|8| [keywords](#keywords)|
-|9| [api endpoints](#api-endpoints)
+|5| [contributor](#contributors)|
+|6| [api endpoints](#api-endpoints)|
+|7| [LLD architecture](#lld)|
+|8| [author](#author)|
 
 ## Installation
 - backend (api/)
@@ -43,42 +42,34 @@ Booking appointment systems, either online or through traditional queueing syste
 ## Run test
 
 ## High Level Design
-![overview](assets/overview-hld.png)
-## Low Level Design
-### HTTP basic access authentication
-HTTP basic access authentication requires a web browser to 
-provide a username and a password when requesting a protected resource. 
-The credentials are encoded using the Base64 algorithm and included in 
-the HTTP header field Authorization: Basic.
-how it works:
-1. The client sends a request to access a protected resource on the server.
-2. If the client has not yet provided any authentication credentials, the server responds with a 401 Unauthorized status code and includes the WWW-Authenticate: Basic header to indicate that it requires basic authentication.
-3. The client then prompts the user to enter their username and password, which are combined into a single string in the format username:password.
-4. The combined string is Base64 encoded and included in the "Authorization: Basic" header in the subsequent request to the server, e.g., Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=.
-5. Upon receiving the request, the server decodes the Base64-encoded credentials and separates the username and password. The server then checks the provided credentials against its user database or authentication service.
-6. If the credentials match, the server grants access to the requested resource. If not, the server responds with a 401 Unauthorized status code.
-![http basic access authentication](assets/http-basic-access-authenticatio.png)
 ## Author: 
 [rakshyak-98](https://github.com/rakshyak-98)
 ## Contributors:
 [yanicodeverse](https://github.com/yanicodeverse), [developerjay18](https://github.com/developerjay18), [Ambrish5211](https://github.com/Ambrish5211)
 
-## keywords
+## LLD
+1. Server:
+	Node.js runtime to execute JavaScript code.
+	Express.js to handle routing, middleware, and request/response handling.
 
-## api endpoints
-- /
-	- signup
-	- sinuin
-	- user
-	- logout
-	- google
-	- google/callback
-	- google/success
-	- google/failure
+2. Database:
+	MongoDB as the NoSQL database to store data.
 
-- /
-	- addTeacher
-	- updateTeacher
-	- deleteTeacher/:id
-	- approveStudent/:id
-	- teachers
+3. Authentication:
+	JSON Web Tokens (JWT) for user authentication and authorization.
+
+4. Logging and Monitoring:
+	Winston for logging application events.
+	Prometheus and Grafana for monitoring performance and resource utilization.
+
+5. API Endpoints:
+	- User Management:
+		- POST /api/auth/register: Register a new user.
+		- POST /api/auth/login: Authenticate a user and return a JWT token.
+
+	- Resource Management (Example: teacher):
+		- GET /api/teacher: Retrieve a list of teacher.
+		- GET /api/teacher/:id: Retrieve details of a specific teacher.
+		- POST /api/teacher: Create a new teacher.
+		- PUT /api/teacher/:id: Update details of a teacher.
+		- DELETE /api/teacher/:id: Delete a teacher.
