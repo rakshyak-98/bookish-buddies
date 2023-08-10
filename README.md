@@ -21,7 +21,7 @@ Booking appointment systems, either online or through traditional queueing syste
 |6| [author](#author)|
 |7| [contributor](#contributors)|
 |8| [keywords](#keywords)|
-
+|9| [api endpoints](#api-endpoints)
 
 ## Installation
 - backend (api/)
@@ -64,3 +64,21 @@ how it works:
 [yanicodeverse](https://github.com/yanicodeverse), [developerjay18](https://github.com/developerjay18), [Ambrish5211](https://github.com/Ambrish5211)
 
 ## keywords
+
+## api endpoints
+- /
+	- signup
+	- sinuin
+	- user
+	- logout
+	- google
+	- google/callback
+	- google/success
+	- google/failure
+
+- /
+	- addTeacher
+	- updateTeacher
+	- deleteTeacher/:id
+	- approveStudent/:id
+	- teachers
