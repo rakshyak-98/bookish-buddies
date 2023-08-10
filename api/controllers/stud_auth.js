@@ -18,7 +18,6 @@ function createStudent(data) {
 const signup = async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
 
-
   try {
     if (!name || !email || !password || !confirmPassword) {
       return res.status(400).json({
@@ -65,16 +64,17 @@ const signup = async (req, res) => {
 };
 
 
-const signin = async (req, res) => {
-  const { email, password } = req.body;
-
-  if (!email || !password) {
-    return res.status(400).json({
-      success: false,
-      message: "Every field is required"
-
-    })
-  }
+const loginUser = async (req, res) => {
+  const validKeys = ["email", "password", "name"]
+  validKeys.forEach(key => {
+    if (!(key in req.body)) {
+      return res.status(400).json({
+        success: false,
+        message: "Every field is required",
+        error: validKeys
+      })
+    }
+  })
 
   try {
     const student = await studentModel.findOne({
@@ -157,4 +157,4 @@ const logout = (req, res) => {
 }
 
 
-module.exports = { signup, signin, user, logout, createStudent };
+module.exports = { signup: signup, loginUser, user, logout, createStudent };

@@ -4,16 +4,15 @@ const emailValidator = require("email-validator");
 const nodemailer = require("nodemailer");
 
 const addTeacher = async (req, res) => {
-    const { name, email, department, subject } = req.body;
-
+    const validKeys = ["name", "email", "department", "subject"];
+    if(!(validKeys.every(key => key in req.body))){
+        return  res.status(400).json({
+            message: "Keys are required",
+            error: validKeys.filter(key => !(key in req.body))
+        })
+    }
     try {
-        if (!name || !department || !subject || !email) {
-            return res.status(400).json({
-                success: false,
-                message: "Every field is mandatory",
-            });
-        }
-
+        const {email} = req.body
         var validEmail = emailValidator.validate(email);
         if (!validEmail) {
             return res.status(400).json({
@@ -145,7 +144,7 @@ const studentApproval = async (req, res) => {
 
 const getAllTeachers = async (req, res) => {
     try {
-        const teachers = await Teacher.find({});
+        const teachers = await Teacher.find({}).sort("-createdAt");
         res.status(200).json({
             success: true,
             data: teachers,

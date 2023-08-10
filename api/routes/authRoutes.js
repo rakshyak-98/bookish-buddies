@@ -1,7 +1,7 @@
 const express = require("express");
 const {
+    loginUser,
     signup,
-    signin,
     logout,
     user,
 } = require("../controllers/stud_auth");
@@ -11,8 +11,12 @@ const passport = require("passport");
 require("../oauth/oauth.js");
 const authRouter = express.Router();
 
-authRouter.post("/login", signup);
-authRouter.post("/signin", signin);
+authRouter.get("/login", (req, res) => {
+    const authHeader = req.header("authorization")
+    if(!authHeader) return res.status(400).json({error: "authorization header missing value."})
+    res.send({message: authHeader})
+});
+authRouter.post("/login", loginUser);
 authRouter.get("/user", jwtAuth, user);
 authRouter.get("/logout", jwtAuth, logout);
 // GOOGLE AUTHENTICATION
