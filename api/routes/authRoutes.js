@@ -11,7 +11,7 @@ const passport = require("passport");
 require("../oauth/oauth.js");
 const authRouter = express.Router();
 
-authRouter.post("/signup", signup);
+authRouter.post("/login", signup);
 authRouter.post("/signin", signin);
 authRouter.get("/user", jwtAuth, user);
 authRouter.get("/logout", jwtAuth, logout);

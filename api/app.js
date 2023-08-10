@@ -19,8 +19,8 @@ app.use(cors());
 app.set('view engine', ejs)
 
 const connectToDb = require("./config/db.js");
-const authRouter = require("./routes/auth.routes.js");
-const adminRouter = require("./routes/admin.routes.js");
+const authRouter = require("./routes/authRoutes.js");
+const adminRouter = require("./routes/adminRoutes.js");
 // const passport = require("passport");
 // app.use(passport.initialize())
 // app.use(passport.session())
