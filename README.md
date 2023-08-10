@@ -141,11 +141,16 @@ API_PORT=
 		- POST /api/auth/login: Authenticate a user and return a JWT token.
 
 	- Resource Management (Example: teacher):
-		- GET /api/teacher: Retrieve a list of teacher.
-		- GET /api/teacher/:id: Retrieve details of a specific teacher.
-		- POST /api/teacher: Create a new teacher.
-		- PUT /api/teacher/:id: Update details of a teacher.
-		- DELETE /api/teacher/:id: Delete a teacher.
+        - teacher
+            - GET /api/teacher id Retrieve a list of teacher.
+            - GET /api/teacher/:id: Retrieve details of a specific teacher.
+            - PUT /api/teacher/:id: Update details of a teacher.
+            - DELETE /api/teacher/:id: Delete a teacher.
+        - student
+            - GET /api/student id Retrieve a list of student.
+            - GET /api/student/:id: Retrieve details of a specific student.
+            - PUT /api/student/:id: Update details of a student.
+            - DELETE /api/student/:id: Delete a student.
 
 ## Author: 
 [rakshyak-98](https://github.com/rakshyak-98)
