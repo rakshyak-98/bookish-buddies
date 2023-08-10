@@ -1,23 +1,17 @@
 const express = require("express");
-const {
-    loginUser,
-    signup,
-    logout,
-    user,
-} = require("../controllers/stud_auth");
+const {login,logout, user, signup } = require("../controllers/stud_auth");
 const jwtAuth = require("../middlewares/jwtAuth");
 const isLoggedIn = require("../middlewares/isLoggedIn");
 const passport = require("passport");
 require("../oauth/oauth.js");
 const authRouter = express.Router();
 
-authRouter.get("/login", (req, res) => {
-    const authHeader = req.header("authorization")
-    if(!authHeader) return res.status(400).json({error: "authorization header missing value."})
-    res.send({message: authHeader})
+authRouter.get("/login", jwtAuth, (req, res) => {
+    res.send({ message: "you are logged in" });
 });
-authRouter.post("/login", loginUser);
+authRouter.post("/login", login);
 authRouter.get("/user", jwtAuth, user);
+authRouter.post("/user", signup);
 authRouter.get("/logout", jwtAuth, logout);
 // GOOGLE AUTHENTICATION
 authRouter.get(

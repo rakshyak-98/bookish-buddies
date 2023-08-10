@@ -5,14 +5,14 @@ const nodemailer = require("nodemailer");
 
 const addTeacher = async (req, res) => {
     const validKeys = ["name", "email", "department", "subject"];
-    if(!(validKeys.every(key => key in req.body))){
-        return  res.status(400).json({
+    if (!validKeys.every((key) => key in req.body)) {
+        return res.status(400).json({
             message: "Keys are required",
-            error: validKeys.filter(key => !(key in req.body))
-        })
+            error: validKeys.filter((key) => !(key in req.body)),
+        });
     }
     try {
-        const {email} = req.body
+        const { email } = req.body;
         var validEmail = emailValidator.validate(email);
         if (!validEmail) {
             return res.status(400).json({
@@ -45,7 +45,7 @@ const addTeacher = async (req, res) => {
 
 const updateTeacher = async (req, res) => {
     try {
-        const authHeader = req.headers.authorization;
+        const authHeader = req.header("authorization");
 
         const teacherId = authHeader.split(" ")[1];
 
