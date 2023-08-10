@@ -44,8 +44,8 @@ app.use('/test/google', (req, res) => {
 })
 
 
-app.all('*',(req, res) => {
-    res.status(404).send('Oops !! 404 Page not found ')
-})
+// app.all('*',(req, res) => {
+//     res.status(404).send('Oops !! 404 Page not found ')
+// })
 
 module.exports = app;
