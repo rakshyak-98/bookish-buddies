@@ -1,7 +1,8 @@
 import styled from "styled-components";
 // import AdminProfile from "../pages/AdminProfile";
 // import Student from "../pages/Student";
-import Teacher from "../pages/Teacher";
+// import Teacher from "../pages/Teacher";
+import Calendar from "./Calendar";
 
 const Container = styled.div`
     display: grid;
@@ -33,10 +34,9 @@ export default function Layout({ left: Nav, center: Main, right: Action}) {
                 <Nav role={"student"}/>
             </Left>
             <Center>
-                <Teacher />
+                <Calendar />
             </Center>
             <Right>
-                {/* <Action /> */}
             </Right>
         </Container>
     );

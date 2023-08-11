@@ -2,15 +2,11 @@ import Layout from "./components/Layout";
 import Nav from "./components/Nav";
 import Action from "./components/Action"
 import LoginForm from "./components/LoginForm";
-import { useEffect, useState } from "react";
-
+// import { useEffect, useState } from "react";
+const isAuthenticated =  true
 
 function App() {
-    const [isAuthenticated, setAuthenticated] = useState(false);
-
-    useEffect(() => {
-        setAuthenticated(true);
-    }, []);
+    // const [isAuthenticated, setAuthenticated] = useState(true);
 
     return (
         <>
