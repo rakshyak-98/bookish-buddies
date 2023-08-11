@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 // const session = require('express-session')
@@ -8,25 +9,22 @@ const app = express();
 // }))
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const ejs = require('ejs')
-require("dotenv").config();
-
-app.use(cookieParser());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
-app.use(cors());
-
-app.set('view engine', ejs)
-
 const connectToDb = require("./config/db.js");
+const ejs = require('ejs')
 const authRouter = require("./routes/authRoutes.js");
 const adminRouter = require("./routes/adminRoutes.js");
+const googleAuthRouter = require("./routes/googleAuthRoutes.js")
 // const passport = require("passport");
 // app.use(passport.initialize())
 // app.use(passport.session())
 connectToDb();
 
 
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
+app.use(cors());
+app.set('view engine', ejs)
 app.use("/ping", (req, res) => {
     res.status(200).send({
       msg: "server is running fine", metaInfo: {
@@ -39,6 +37,7 @@ app.use("/ping", (req, res) => {
 
 app.use("/", authRouter);
 app.use("/", adminRouter)
+app.use("/", googleAuthRouter)
 app.use('/test/google', (req, res) => {
     res.render('testAuthIndex.ejs')
 })
