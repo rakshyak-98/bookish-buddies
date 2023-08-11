@@ -11,9 +11,9 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const connectToDb = require("./config/db.js");
 const ejs = require('ejs')
-const authRouter = require("./routes/authRoutes.js");
-const adminRouter = require("./routes/adminRoutes.js");
-const googleAuthRouter = require("./routes/googleAuthRoutes.js")
+const authRouter = require("./routes/authRouter.js");
+const teacherRouter = require("./routes/teacherRouter.js");
+// const googleAuthRouter = require("./routes/googleAuthRouter.js")
 // const passport = require("passport");
 // app.use(passport.initialize())
 // app.use(passport.session())
@@ -36,8 +36,8 @@ app.use("/ping", (req, res) => {
   })
 
 app.use("/", authRouter);
-app.use("/", adminRouter)
-app.use("/", googleAuthRouter)
+app.use("/", teacherRouter)
+// app.use("/", googleAuthRouter)
 app.use('/test/google', (req, res) => {
     res.render('testAuthIndex.ejs')
 })

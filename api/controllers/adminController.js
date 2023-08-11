@@ -1,10 +1,10 @@
-const Teacher = require("../model/adminModel.js");
-const studentModel = require("../model/student.model.js");
+const Teacher = require("../model/teacherModel.js");
+const studentModel = require("../model/studentModel.js");
 const emailValidator = require("email-validator");
 const nodemailer = require("nodemailer");
 
 const addTeacher = async (req, res) => {
-    const validKeys = ["name", "email", "department", "subject"];
+    const validKeys = ["name", "email"];
     if (!validKeys.every((key) => key in req.body)) {
         return res.status(400).json({
             message: "Keys are required",
@@ -36,7 +36,7 @@ const addTeacher = async (req, res) => {
             success: true,
         });
     } catch (error) {
-        return res.status(400).json({
+        return res.status(500).json({
             success: false,
             message: error.message,
         });

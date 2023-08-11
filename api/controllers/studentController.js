@@ -1,4 +1,4 @@
-const studentModel = require("../model/student.model");
+const studentModel = require("../model/studentModel");
 const emailValidator = require("email-validator");
 const bcrypt = require("bcrypt");
 
@@ -102,9 +102,10 @@ const login = async (req, res) => {
             message: "Signed in Successfully",
         });
     } catch (error) {
-        res.status(404).json({
+        console.log(error)
+        res.status(500).json({
             success: false,
-            message: error.message,
+            message: "Server failed to operate on request",
         });
     }
 };

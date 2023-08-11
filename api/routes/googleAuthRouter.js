@@ -1,4 +1,5 @@
-const googleAuthRouter = require("express").Route()
+const googleAuthRouter = require("express").Router()
+const passport = require("passport")
 
 // GOOGLE AUTHENTICATION
 googleAuthRouter.get(

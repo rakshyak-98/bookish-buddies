@@ -5,4 +5,4 @@ const ServiceSchema = new mongoose.Schema({
     assignTo: {type: mongoose.Types.ObjectId, ref: "Teacher"} 
 })
 
-exports.module = mongoose.model("Service", ServiceSchema)
+exports = mongoose.model("Service", ServiceSchema)

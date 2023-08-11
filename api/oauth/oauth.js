@@ -1,4 +1,4 @@
-const { createStudent } = require('../controllers/stud_auth.js')
+const { createStudent } = require('../controllers/studentController.js')
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth2').Strategy
 

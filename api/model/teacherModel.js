@@ -16,11 +16,9 @@ const TeacherSchema = new mongoose.Schema({
     },
     department: {
       type: mongoose.Types.ObjectId,
-      required: [true, "Department must be there"],
     },
     subject: {
       type: mongoose.Types.ObjectId,
-      required: [true, "Subject is mandatory"],
     }
   },{
     timestamps:true
