@@ -1,4 +1,4 @@
-const Teacher = require("../model/admin.model.js");
+const Teacher = require("../model/adminModel.js");
 const studentModel = require("../model/student.model.js");
 const emailValidator = require("email-validator");
 const nodemailer = require("nodemailer");

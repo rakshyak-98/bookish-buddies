@@ -4,7 +4,7 @@ const JWT = require('jsonwebtoken');
 
 const bcrypt = require('bcrypt');
 
-const studentSchema = new mongoose.Schema ({
+const UserSchema = new mongoose.Schema ({
     name:{
       type: String,
       required: [true, "User name is required"],
@@ -31,12 +31,11 @@ const studentSchema = new mongoose.Schema ({
       type:String,
       select: false
     },
-    
 },{
   timestamps:true
 })
 
-studentSchema.pre('save',async function(next){
+UserSchema.pre('save',async function(next){
   if(!this.isModified('password')){
     return next()
   }
@@ -45,7 +44,7 @@ studentSchema.pre('save',async function(next){
   return next();
 })
 
-studentSchema.methods = { 
+UserSchema.methods = { 
  jwtToken() {
     return JWT.sign(
       {id: this._id, email: this.email },
@@ -56,4 +55,4 @@ studentSchema.methods = {
 }}
 
 
-module.exports = mongoose.model('Student', studentSchema);
+module.exports = mongoose.model('User', UserSchema);
