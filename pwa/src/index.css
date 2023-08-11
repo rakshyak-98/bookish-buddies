@@ -1,0 +1,27 @@
+:root{
+    --orange: #C85C5C;
+    --orange-light: #F9D7C7;
+    --white: #fff;
+    --black: black;
+    --gray-light: #efefef;
+    --gray-dark: #525354;
+    --red: #FDE0CE;
+    --green: #E8F9D4;
+    --green-dark: #B2EA70;
+
+    --padding-sm: 20px;
+    --padding-xs: 10px;
+    --margin-sm: 20px;
+    --margin-xs: 10px;
+    --margin-lg: 60px;
+    --gap-sm: 10px;
+    --gap-md: 40px;
+    --border-sm: 20px;
+    --border-xs: 8px;
+    --border-lg: 40px;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
