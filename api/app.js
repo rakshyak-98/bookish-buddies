@@ -27,7 +27,8 @@ app.use(cors());
 app.set('view engine', ejs)
 app.use("/ping", (req, res) => {
     res.status(200).send({
-      msg: "server is running fine", metaInfo: {
+      msg: "server is running fine",
+       metaInfo: {
         host: req.hostname,
         protocol: req.protocol,
         headers: req.headers

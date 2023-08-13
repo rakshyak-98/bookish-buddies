@@ -15,7 +15,7 @@ const jwtAuth = (req, res, next) => {
         }
         const payload = JWT.verify(token, process.env.JWT_SECRET);
 
-        req.student = { id: payload.id, email: payload.email };
+        req.user = { id: payload.id, email: payload.email };
     } catch (error) {
         return res.status(400).json({
             success: false,
