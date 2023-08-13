@@ -2,6 +2,7 @@ import Dashboard from "./pages/Dashboard";
 import LoginPage from "./pages/LoginPage";
 import { Routes, Route } from "../node_modules/react-router-dom/dist/index";
 import Layout from "./Layout";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
                 <Route index element={<Dashboard />} />
             </Route>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
         </Routes>
     );
 }
