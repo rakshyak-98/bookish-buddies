@@ -1,17 +1,25 @@
 import Dashboard from "./pages/Dashboard";
 import LoginPage from "./pages/LoginPage";
-import { Routes, Route } from "../node_modules/react-router-dom/dist/index";
-import Layout from "./Layout";
+import Analytics from "./pages/Analytics";
+import Message from "./pages/Message";
+import Layout from "./pages/Layout";
+import Tools from "./pages/Tools";
+import Settings from "./pages/Settings";
+import { Routes, Route } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage";
 
 function App() {
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
-                <Route index element={<Dashboard />} />
+                <Route path="/overview" element={<Dashboard />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/analytics" element={<Analytics />} />
+                <Route path="/message" element={<Message />} />
+                <Route path="/tools" element={<Tools />} />
+                <Route path="/settings" element={<Settings />} />
             </Route>
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
         </Routes>
     );
 }

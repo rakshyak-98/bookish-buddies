@@ -100,7 +100,7 @@ select{
 /* dash board */
 .layout__grid {
     display: grid;
-    grid-template-columns: 20rem auto 40rem;
+    grid-template-columns: 20rem auto;
 }
 
 /* main section */

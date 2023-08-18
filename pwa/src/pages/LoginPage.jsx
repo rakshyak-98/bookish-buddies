@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import image from "../assets/right-login-image.svg";
+import axios from "../bb-axios/config-default"
 export default function LoginPage() {
+    useEffect(() => {
+        axios.post("/user", {})
+    })
     const [show, setShow] = useState(false);
     return (
         <main>

@@ -1,49 +1,10 @@
 import { useState } from "react";
-import reactIcon from "../assets/react.svg";
 import CustomModal from "../components/Modal";
-
 export default function Dashboard() {
-    const [showModal, setShowModal] = useState(false);
+    const [showTeacherModal, setTeacherModal] = useState(false);
+    const [showStudentModal, setStudentModal] = useState(false);
     return (
         <>
-            <aside className={"aside"}>
-                <ul>
-                    <li>
-                        <span className="material-symbols-outlined">
-                            dashboard
-                        </span>
-                        <a href="#overview">Overview</a>
-                    </li>
-                    <li>
-                        <span className="material-symbols-outlined">
-                            donut_small
-                        </span>
-                        <a href="#analytics">Analytics</a>
-                    </li>
-                    <li>
-                        <span className="material-symbols-outlined">
-                            speaker_notes
-                        </span>
-                        <a href="#message">Message</a>
-                    </li>
-                    <li>
-                        <span className="material-symbols-outlined">
-                            category
-                        </span>
-                        <a href="#tools">Tools</a>
-                    </li>
-                    <li>
-                        <span className="material-symbols-outlined">
-                            settings
-                        </span>
-                        <a href="#settings">Settings</a>
-                    </li>
-                </ul>
-                <div className={"aside__footer"}>
-                    <span className="material-symbols-outlined">logout</span>
-                    <a href="#logout">Log Out</a>
-                </div>
-            </aside>
             <main className={"section__main"}>
                 <div className={"main__wrapper"}>
                     <header>
@@ -56,62 +17,14 @@ export default function Dashboard() {
                     </header>
                     <section className={"content"}>
                         <h2>Overview</h2>
-                        <div className={"overview__cards"}>
-                            <div className={"overview__card"}>
-                                <header>
-                                    <span className="material-symbols-outlined">
-                                        public
-                                    </span>
-                                    <h3>Subject</h3>
-                                </header>
-                                <div className={"content"}>
-                                    <div className="left">
-                                        <span>10,328</span>
-                                        <p>Stars rated</p>
-                                    </div>
-                                    <div className="right"></div>
-                                </div>
-                            </div>
-                            <div className={"overview__card"}>
-                                <header>
-                                    <span className="material-symbols-outlined">
-                                        public
-                                    </span>
-                                    <h3>Subject</h3>
-                                </header>
-                                <div className={"content"}>
-                                    <div className="left">
-                                        <span>10,328</span>
-                                        <p>Stars rated</p>
-                                    </div>
-                                    <div className="right"></div>
-                                </div>
-                            </div>
-                            <div className={"overview__card"}>
-                                <header>
-                                    <span className="material-symbols-outlined">
-                                        public
-                                    </span>
-                                    <h3>Subject</h3>
-                                </header>
-                                <div className={"content"}>
-                                    <div className="left">
-                                        <span>10,328</span>
-                                        <p>Stars rated</p>
-                                    </div>
-                                    <div className="right"></div>
-                                </div>
-                            </div>
-                        </div>
                     </section>
                     <section className={"overview__manage__actions"}>
                         <a
                             href="#add-teacher"
-                            onClick={() => setShowModal(true)}>
+                            onClick={() => setTeacherModal(true)}>
                             Add Teacher
                         </a>
-                        <a href="#add-teacher">Add Subject</a>
-                        <a href="#add-teacher">Manage Appointment</a>
+                        <a href="#add-subject" onClick={() => setStudentModal(true)}>Add Subject</a>
                     </section>
                     <section className={"section__overview__data"}>
                         <div className={"table__control"}>
@@ -172,75 +85,16 @@ export default function Dashboard() {
                     </section>
                 </div>
             </main>
-            <aside className={"aside__right"}>
-                <header>
-                    <a href="#quit">Quit</a>
-                    <a href="#personal">Personal</a>
-                    <span className={""}>
-                        <img src={reactIcon} alt="user image" />
-                    </span>
-                </header>
-                <h2>Top rated</h2>
-                <div className={"aside__right__cards"}>
-                    <div className={"aside__right__card"}>
-                        <header>
-                            <span className="material-symbols-outlined">
-                                public
-                            </span>
-                        </header>
-                        <div className={"aside__right__card"}>
-                            <div className="left">
-                                <p>David miller</p>
-                                <span>10,328</span>
-                            </div>
-                            <div className="right"></div>
-                        </div>
-                    </div>
-                    <div className={"aside__right__card"}>
-                        <header>
-                            <span className="material-symbols-outlined">
-                                public
-                            </span>
-                        </header>
-                        <div className={""}>
-                            <div className="left">
-                                <p>David miller</p>
-                                <span>10,328</span>
-                            </div>
-                            <div className="right"></div>
-                        </div>
-                    </div>
-                    <div className={"aside__right__card"}>
-                        <header>
-                            <span className="material-symbols-outlined">
-                                public
-                            </span>
-                        </header>
-                        <div className={"aside__right__card"}>
-                            <div className="left">
-                                <p>David miller</p>
-                                <span>10,328</span>
-                            </div>
-                            <div className="right"></div>
-                        </div>
-                    </div>
-                    <div className={"aside__right__card"}>
-                        <header>
-                            <span className="material-symbols-outlined">
-                                public
-                            </span>
-                        </header>
-                        <div className={""}>
-                            <div className="left">
-                                <p>David miller</p>
-                                <span>10,328</span>
-                            </div>
-                            <div className="right"></div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-            <CustomModal variant="teacher" open={showModal} onClose={() => setShowModal(false)} />
+            <CustomModal
+                variant="teacher"
+                open={showTeacherModal}
+                onClose={() => setTeacherModal(false)}
+            />
+            <CustomModal
+                variant="student"
+                open={showStudentModal}
+                onClose={() => setStudentModal(false)}
+            />
         </>
     );
 }
