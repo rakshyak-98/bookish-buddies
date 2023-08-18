@@ -70,7 +70,6 @@ const login = async (req, res) => {
             .select("+password");
 
         if(student == null){
-            console.log(password, student)
             res.status(404).json({message: message["404"]})
             return
         }
