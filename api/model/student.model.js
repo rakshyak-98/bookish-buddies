@@ -31,9 +31,7 @@ const studentSchema = new mongoose.Schema ({
       type:String,
       select: false
     },
-    forgotPasswordExpiryDate: {
-      type: String
-    }
+    
 },{
   timestamps:true
 })
