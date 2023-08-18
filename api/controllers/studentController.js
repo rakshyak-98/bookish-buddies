@@ -1,3 +1,4 @@
+const {RESPONSE_MESSAGE: message} = require("../constants/message.cjs")
 const studentModel = require("../model/studentModel");
 const emailValidator = require("email-validator");
 const bcrypt = require("bcrypt");
@@ -14,58 +15,45 @@ function createStudent(data) {
 }
 
 const signup = async (req, res) => {
-    const  validKey = ["name", "email", "password", "confirmPassword"]
+    const  validKey = ["email", "password"]
 
     try {
         if (!(validKey.every(key => key in req.body))) {
             return res.status(400).json({
                 success: false,
-                message: "Every field is mandatory",
+                message: message["400"],
                 error: validKey.filter(key => !(key in req.body))
             });
         }
 
-        const {email, password, confirmPassword} = req.body
+        const {email, password } = req.body
 
         var validEmail = emailValidator.validate(email);
+
         if (!validEmail) {
             return res.status(400).json({
                 success: false,
-                message: "Enter a valid emailID",
+                message: message["400"],
             });
         }
 
-        if (password !== confirmPassword) {
-            return res.status(400).json({
-                success: false,
-                message: "Password and confirmPassword does not match",
-            });
-        }
+        studentModel.create(req.body);
 
-        const studentInfo = studentModel(req.body);
-        const result = await studentInfo.save();
-
-        return res.status(200).json({
+        return res.status(201).json({
             success: true,
-            message: "User signup done",
+            message: message["201"],
         });
     } catch (error) {
-        if (error.code === 11000) {
-            return res.status(400).json({
+            return res.status(500).json({
                 success: false,
-                message: "Account already exists",
+                message: message["500"],
+                error: error.message
             });
-        }
-
-        return res.status(400).json({
-            success: false,
-            message: error.message,
-        });
     }
 };
 
 const login = async (req, res) => {
-    const validKeys = ["email", "password", "name"];
+    const validKeys = ["email", "password"];
     if (!validKeys.every((key) => key in req.body)) {
         return res.status(400).json({
             message: "Keys are required",
@@ -81,11 +69,10 @@ const login = async (req, res) => {
             })
             .select("+password");
 
-        if (!student || !(await bcrypt.compare(password, student.password))) {
-            return res.status(400).json({
-                success: false,
-                message: "Invalid Credentials",
-            });
+        if(student == null){
+            console.log(password, student)
+            res.status(404).json({message: message["404"]})
+            return
         }
 
         const token = student.jwtToken();
@@ -99,7 +86,7 @@ const login = async (req, res) => {
         res.cookie("token", token, cookieOptions);
         res.status(200).json({
             success: true,
-            message: "Signed in Successfully",
+            message: message["200"],
         });
     } catch (error) {
         console.log(error)
