@@ -13,12 +13,12 @@ function App() {
         <Routes>
             <Route path="/" element={<Layout />}>
                 <Route path="/overview" element={<Dashboard />} />
-                <Route path="/register" element={<RegisterPage />} />
                 <Route path="/analytics" element={<Analytics />} />
                 <Route path="/message" element={<Message />} />
                 <Route path="/tools" element={<Tools />} />
                 <Route path="/settings" element={<Settings />} />
             </Route>
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
         </Routes>
     );
