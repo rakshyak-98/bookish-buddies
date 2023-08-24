@@ -60,7 +60,7 @@ export default function LoginPage() {
                             </Link>
                         </form>
                         <p className="separator">or</p>
-                        <a href="#google-oauth" className="btn btn--outlined">
+                        <a href="http://localhost:8000/google" className="btn btn--outlined">
                             Sign in with google
                         </a>
                     </div>

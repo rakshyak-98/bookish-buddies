@@ -17,9 +17,9 @@ function App() {
                 <Route path="/message" element={<Message />} />
                 <Route path="/tools" element={<Tools />} />
                 <Route path="/settings" element={<Settings />} />
+            <Route path="/login" element={<LoginPage />} />
             </Route>
             <Route path="/register" element={<RegisterPage />} />
-            <Route path="/login" element={<LoginPage />} />
         </Routes>
     );
 }

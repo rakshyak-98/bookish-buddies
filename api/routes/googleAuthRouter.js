@@ -1,4 +1,5 @@
 const googleAuthRouter = require("express").Router()
+const isLoggedIn = require('../middlewares/isLoggedIn.js')
 const passport = require("passport")
 
 // GOOGLE AUTHENTICATION
@@ -11,16 +12,16 @@ googleAuthRouter.get(
 googleAuthRouter.get(
     "/google/callback",
     passport.authenticate("google", {
-        successRedirect: "/api/auth/google/success",
-        failureRedirect: "/api/auth/google/failure",
+        successRedirect: "http://localhost:5173/overview",
+        failureRedirect: "/google/failure",
     })
 );
 googleAuthRouter
-    .get("/google/success", isLoggedIn, (req, res) => {
+    .get("/google/success", (req, res) => {
         res.send("successfully logged in ...");
     })
     .get("/google/failure", (req, res) => {
         res.send("try again...");
     });
 
-exports.module = googleAuthRouter
+module.exports = googleAuthRouter
