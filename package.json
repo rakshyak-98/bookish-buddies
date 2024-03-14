@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "content-type": "^1.0.5",
+    "raw-body": "^2.5.2"
+  }
+}

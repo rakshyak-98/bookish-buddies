@@ -46,6 +46,11 @@ API_PORT=
     - development branch [stage-main](https://bookish-buddies-stage-nob5za4o8-rakshyak-98.vercel.app/?vercelToolbarCode=8rJlnyAIYF8zu3n)
 ## Run test
 
+## Security check list
+- [x] helmet
+- [x] set request size limits
+- [x]
+
 ## High Level Design
 1. Frontend (Client-Side):
 
@@ -152,7 +157,7 @@ API_PORT=
             - PUT /api/student/:id: Update details of a student.
             - DELETE /api/student/:id: Delete a student.
 
-## Author: 
+## Author:
 [rakshyak-98](https://github.com/rakshyak-98)
 ## Contributors:
 [yanicodeverse](https://github.com/yanicodeverse), [developerjay18](https://github.com/developerjay18), [Ambrish5211](https://github.com/Ambrish5211)
