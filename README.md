@@ -47,7 +47,7 @@ API_PORT=
 ## Run test
 
 ## Security check list
-- [x] helmet
+- [x] helmet: secure response headers.
 - [x] set request size limits
 - [x]
 
@@ -161,3 +161,6 @@ API_PORT=
 [rakshyak-98](https://github.com/rakshyak-98)
 ## Contributors:
 [yanicodeverse](https://github.com/yanicodeverse), [developerjay18](https://github.com/developerjay18), [Ambrish5211](https://github.com/Ambrish5211)
+
+## Reading material
+[suggested article](https://medium.com/@julienetienne/stop-using-localstorage-64a6d6805da8) read about drawbacks of using local storage and cookies.
