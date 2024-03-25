@@ -1,11 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/pwa/node_modules
-/pwa/.pnp
-/pwa/.pnp.js
-/api/node_modules
-/api/.env
+node_modules
 
 # assets
 
