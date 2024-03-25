@@ -6,4 +6,4 @@ const SubjectSchema = new mongoose.Schema({
     service: {type: mongoose.Types.ObjectId, ref: "Service"}
 })
 
-exports = mongoose.model("Subject", SubjectSchema)
+export default mongoose.model("Subject", SubjectSchema)

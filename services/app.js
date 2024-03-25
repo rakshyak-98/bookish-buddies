@@ -14,7 +14,6 @@ const helmet = require("helmet");
 const ejs = require("api/node_modules/@types/ejs");
 const authRouter = require("api/routes/authRouter.js");
 const teacherRouter = require("api/routes/teacherRouter.js");
-const googleAuthRouter = require("api/routes/googleAuthRouter.js");
 
 // const passport = require("passport");
 const mongoose = require("mongoose");

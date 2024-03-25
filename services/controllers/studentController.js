@@ -1,14 +1,13 @@
 const {RESPONSE_MESSAGE: message} = require("../constants/message.cjs")
-const studentModel = require("../model/studentModel");
+const studentModel = require("../database/model/studentModel");
 const emailValidator = require("email-validator");
 const bcrypt = require("bcrypt");
 
 function createStudent(data) {
-    let validKey = ["name", "email"];
+    const validKey = ["name", "email"];
 
-    for (let key of validKey) {
+    for (const key of validKey) {
         if (key in data) continue;
-        else throw new Error(`Invalid Key ${key}`);
     }
 
     studentModel.create(data);
@@ -28,7 +27,7 @@ const signup = async (req, res) => {
 
         const {email, password } = req.body
 
-        var validEmail = emailValidator.validate(email);
+        const validEmail = emailValidator.validate(email);
 
         if (!validEmail) {
             return res.status(400).json({
