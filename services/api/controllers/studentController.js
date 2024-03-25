@@ -1,5 +1,5 @@
-const {RESPONSE_MESSAGE: message} = require("../constants/message.cjs")
-const studentModel = require("../database/model/studentModel");
+const {RESPONSE_MESSAGE: message} = require("../../constants/message.cjs")
+const studentModel = require("../../database/model/studentModel");
 const emailValidator = require("email-validator");
 const bcrypt = require("bcrypt");
 
