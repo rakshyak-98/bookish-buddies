@@ -8,6 +8,7 @@ mongoose.connect("mongodb://localhost:27017/bookish-buddies");
 const app = express();
 const port = process.env.PORT || 8000;
 
+app.use(express.json());
 app.use(require("helmet")());
 app.use(require('cors')());
 

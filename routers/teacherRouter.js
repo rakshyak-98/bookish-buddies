@@ -1,7 +1,9 @@
 const controller = require("../controllers/teacherController");
-const router = require('express').Router();
+const { ensureAccess } = require("../middlewares/auth");
+const router = require("express").Router();
 
-router.post("/", controller.addTeacher)
-router.get("/", controller.getTeacher)
+router.post("/", ensureAccess(["Admin"]), controller.addTeacher);
+router.get("/", controller.getTeacherList);
 
 module.exports = router;
+
