@@ -1,5 +1,5 @@
 const Teacher = require("../models/Teacher");
-const { dataParse: teacherDataParse, teacherQueryParser } = require("../lib/validateDate");
+const { dataParse: teacherDataParse, validateTeacherQuery } = require("../lib/validateDate");
 
 async function addTeacher(req, res) {
 	try {
@@ -18,7 +18,7 @@ async function addTeacher(req, res) {
 
 async function getTeacherList(req, res) {
 	if (Object.keys(req.query).length !== 0) {
-		const parsedQuery = teacherQueryParser(req.query);
+		const parsedQuery = validateTeacherQuery(req.query);
 		if (parsedQuery.error) {
 			res.status(400).send(parsedQuery.error);
 		}

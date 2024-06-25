@@ -1,5 +1,6 @@
 const express = require("express");
 const teacherRouter = require("./routers/teacherRouter");
+const slotRouter = require("./routers/slotRouter");
 const {exec} = require("child_process")
 const mongoose = require("mongoose")
 
@@ -19,6 +20,7 @@ app.get("/hello", (_, res) => {
 exec("docker start mongodb");
 
 app.use("/teacher", teacherRouter);
+app.use("/slot", slotRouter);
 
 app.listen(port, () => {
     console.log(`Started express server on port ${port}`)
