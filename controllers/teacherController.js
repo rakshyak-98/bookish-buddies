@@ -23,7 +23,7 @@ async function getTeacherList(req, res) {
 			res.status(400).send(parsedQuery.error);
 		}
 		const teachers = await Teacher.find(parsedQuery.data);
-		res.status().send(teachers);
+		res.status(200).send(teachers);
 	} else {
 		const teachers = await Teacher.find();
 		res.status(200).send(teachers);

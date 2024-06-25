@@ -1,6 +1,8 @@
 const controller = require("../controllers/slotController");
+const { ensureAccess } = require("../middlewares/auth");
 const router = require("express").Router();
 
-router.post("/", controller.addSlot);
+router.post("/", ensureAccess(["teacher"]), controller.addSlot);
 
 module.exports = router;
+
