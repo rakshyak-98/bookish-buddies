@@ -18,7 +18,7 @@ async function addTeacher(req, res) {
 
 async function getTeacherList(req, res) {
 	if (Object.keys(req.query).length !== 0) {
-		const parsedQuery = teacherDataParse(req.query);
+		const parsedQuery = teacherQueryParser(req.query);
 		if (parsedQuery.error) {
 			res.status(400).send(parsedQuery.error);
 		}
