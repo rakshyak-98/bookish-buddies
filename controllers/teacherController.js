@@ -1,9 +1,9 @@
 const Teacher = require("../models/Teacher");
-const { dataParse: teacherDataParse, validateTeacherQuery } = require("../lib/validateDate");
+const { validateTeacherData, validateTeacherQuery } = require("../lib/validateDate");
 
 async function addTeacher(req, res) {
 	try {
-		const parsedData = teacherDataParse(req.body);
+		const parsedData = validateTeacherData(req.body);
 		if (parsedData.error) {
 			res.status(400).send(parsedData.error);
 			return;
