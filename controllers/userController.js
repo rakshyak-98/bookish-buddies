@@ -19,7 +19,7 @@ async function signup(req, res) {
 	} else {
 		parsedData.data.role = "user";
 	}
-	const user = User.create(parsedData.data);
+	const user = await User.create(parsedData.data);
 	const access = sign(
 		{
 			email: user.email,
