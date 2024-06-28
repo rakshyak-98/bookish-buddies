@@ -1,3 +1,4 @@
+const { verify } = require("jsonwebtoken");
 /**
  * @param {Array} allowedRoles
  */
@@ -23,7 +24,20 @@ function ensureAccess(allowedRoles = null) {
 	};
 }
 
+function authenticate() {
+	return function (req, res, next) {
+		const token = req.headers.authorization;
+		if (!token) {
+			res.status(400).send({ message: "Missing token.", code: "MISSING_AUTHORIZATION" });
+		}
+		const jwt = verify(token, process.env.JWT_SECRET);
+		console.log(jwt);
+		next();
+	};
+}
+
 module.exports = {
 	ensureAccess,
+	authenticate,
 };
 

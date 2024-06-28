@@ -1,8 +1,7 @@
 const express = require("express");
-const teacherRoutes = require("./routers/teacherRoutes");
-const slotRoutes = require("./routers/slotRoutes");
 const { exec } = require("child_process");
 const mongoose = require("mongoose");
+const {authenticate} = require("./middlewares/auth")
 require("dotenv").config();
 
 mongoose.connect("mongodb://localhost:27017/bookish-buddies");
@@ -21,8 +20,8 @@ app.get("/hello", (_, res) => {
 exec("docker start mongodb");
 
 app.use("/", require("./routers/authRoutes"));
-app.use("/teacher", teacherRoutes);
-app.use("/slot", slotRoutes);
+app.use("/teacher", require("./routers/teacherRoutes"));
+app.use("/slot", require("./routers/slotRoutes"));
 
 app.listen(port, () => {
 	console.log(`Started express server on port ${port}`);
